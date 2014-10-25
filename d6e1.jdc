@@ -1,0 +1,7 @@
+Calculator calculator = new Calculator();
+
+calculator.add(19,7);
+calculator.substract(19,7);
+calculator.multiply(19,7);
+calculator.divide(19,7);
+calculator.modulus(19,7);
