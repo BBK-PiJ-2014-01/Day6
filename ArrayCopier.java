@@ -1,6 +1,6 @@
 public class ArrayCopier {
 
-	void copy (int[] src, int[] dst) {	
+	public void copy (int[] src, int[] dst) {	
 		for (int i=0; i<src.length ; i++)
 			if (i<dst.length)
 				dst[i] = src[i];
@@ -9,7 +9,7 @@ public class ArrayCopier {
 				 dst[i]=0;
 	}
 
-	void print (int[] matrix) {
+	public void print (int[] matrix) {
 		System.out.print("Array values: ");
 		for (int i=0; i<matrix.length ; i++)
 			System.out.print(matrix[i] + " ");
