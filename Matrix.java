@@ -16,19 +16,44 @@ public class Matrix {
 		} else
 			return(false);	
 	}
-/*
+
 	public boolean setRow (int row, String valueSet) {
-		int[] tempSet = new int[matrix2D.length];
-				
-		if ((rowNumber<=matrix2D.length))
-
+		String[] tempSet = new String[matrix2D.length];
+		if ((row<=matrix2D.length)) {
+			int j = 0;	
+			for (int i=0; i<valueSet.length(); i++) {
+				if (Character.isDigit(valueSet.charAt(i))) {
+					tempSet[j] += valueSet.charAt(i);
+					System.out.println(valueSet.charAt(i));
+				}
+				else
+					if (valueSet.charAt(i)==',') {
+						System.out.println(tempSet[j]);
+						j++;
+					}
+					else
+						return(false);
+			}
+			System.out.println(j);
+			System.out.println(matrix2D[0].length);
+			if (j==matrix2D[0].length-1) {
+				for (int i=0; i<j; i++) {
+					matrix2D[row][i] = Integer.parseInt(tempSet[i]);
+//					System.out.println(Integer.parseInt(tempSet[i]));
+				}
+				return(true);
+			} else
+				return(false);
+		} else
+			return(false);
 	}
-
+/*
 	public boolean setColumn (int column, String valueSet) {
 
 	}
 
 	public String toString() {
+		String output = "[";
 
 	}
 */
