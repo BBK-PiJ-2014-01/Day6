@@ -1,0 +1,7 @@
+Matrix matrix = new Matrix(2,3);
+matrix.prettyPrint();
+
+matrix.setMatrix("[4,3;15,4;9,9]");
+matrix.prettyPrint();
+
+println(matrix.toString());

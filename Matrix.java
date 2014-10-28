@@ -67,6 +67,31 @@ public class Matrix {
 			return(false);
 	}
 
+	public boolean setMatrix(String valueSet) {
+		String[][] tempSet = new String[matrix2D[0].length][matrix2D.length];		
+		for (int i=0; i<matrix2D[0].length ; i++)
+			for (int j=0; j<matrix2D.length ; j++)
+				tempSet[i][j]="";
+		int i=0;
+		int j=0;
+		System.out.println("Step1");
+		do {
+			if (Character.isDigit(valueSet.charAt(i)))
+					tempSet[i][j] += valueSet.charAt(i);
+				else
+					if (valueSet.charAt(i)==',')
+						j++;
+					else
+						if (valueSet.charAt(i)==';')
+							i++;			
+		} while (valueSet.charAt(i)==']');
+		System.out.println("Step2");
+		for (int x=0; x< matrix2D[0].length; x++)
+			for (int y=0; y< matrix2D.length; y++)
+				matrix2D[x][y] = Integer.parseInt(tempSet[x][y]);
+		return(true); // to be checked
+	}
+
 	public String toString() {
 		String output = "[";
 		for (int i=0; i< matrix2D.length; i++)
