@@ -68,28 +68,36 @@ public class Matrix {
 	}
 
 	public boolean setMatrix(String valueSet) {
-		String[][] tempSet = new String[matrix2D[0].length][matrix2D.length];		
-		for (int i=0; i<matrix2D[0].length ; i++)
-			for (int j=0; j<matrix2D.length ; j++)
+
+		String[][] tempSet = new String[matrix2D.length][matrix2D[0].length];		
+		for (int i=0; i<matrix2D.length ; i++)
+			for (int j=0; j<matrix2D[0].length ; j++)
 				tempSet[i][j]="";
+		
 		int i=0;
 		int j=0;
-		System.out.println("Step1");
+		int pointer = 1;
 		do {
-			if (Character.isDigit(valueSet.charAt(i)))
-					tempSet[i][j] += valueSet.charAt(i);
+			if (Character.isDigit(valueSet.charAt(pointer)))
+					tempSet[i][j] += valueSet.charAt(pointer);
 				else
-					if (valueSet.charAt(i)==',')
+					if (valueSet.charAt(pointer)==',')
 						j++;
 					else
-						if (valueSet.charAt(i)==';')
-							i++;			
-		} while (valueSet.charAt(i)==']');
-		System.out.println("Step2");
-		for (int x=0; x< matrix2D[0].length; x++)
-			for (int y=0; y< matrix2D.length; y++)
-				matrix2D[x][y] = Integer.parseInt(tempSet[x][y]);
-		return(true); // to be checked
+						if (valueSet.charAt(pointer)==';') {
+							i++;
+							j=0;	
+						}
+			pointer++;			
+		} while (valueSet.charAt(pointer)!=']');
+
+		if ((matrix2D.length == i+1) && (matrix2D[0].length == j+1)) {
+			for (int x=0; x< matrix2D.length; x++)
+				for (int y=0; y< matrix2D[0].length; y++)
+					matrix2D[x][y] = Integer.parseInt(tempSet[x][y]);
+			return(true);
+		} else
+			return(false);
 	}
 
 	public String toString() {
@@ -97,9 +105,9 @@ public class Matrix {
 		for (int i=0; i< matrix2D.length; i++)
 			for (int j=0; j< matrix2D[0].length; j++) {
 				output = output + matrix2D[i][j];
-				if (j==matrix2D[0].length-1)
+				if ((j==matrix2D[0].length-1) && (i!=matrix2D.length-1))
 					output += ";";
-				else
+				if (j!=matrix2D[0].length-1)
 					output += ",";
 			}
 		output += "]";
