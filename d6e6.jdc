@@ -1,0 +1,12 @@
+Target target = new Target(10);
+target.init();
+println("Here they come! Try to bring the plane down!);
+do {
+	println("Enter a coordinate X: ");
+	input_x = System.console.readInt();
+	println("Enter a coordinate Y: ");
+	input_y = System.console.readInt();
+	println("Enter a coordinate Z: ");
+	input_z = System.console.readInt();
+	
+} while (target.fire(input_x, input_y, input_z)!=Result.HIT)
