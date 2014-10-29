@@ -1,4 +1,4 @@
-public MatrixChecker {
+public class MatrixChecker {
 
 	public boolean isSymmetrical(int[] valueSet) {
 		boolean result = true;
@@ -7,7 +7,7 @@ public MatrixChecker {
 			if (valueSet[i] != valueSet[valueSet.length-1-i])
 				result = false;
 			i++;
-		} while ((result == true) && (i <= valueSet.length-1-i))
+		} while ((result == true) && (i <= valueSet.length-1-i));
 		return(result);
 	}
 

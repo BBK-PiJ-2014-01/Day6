@@ -1,0 +1,6 @@
+
+Matrix matrix = new Matrix(4, 4);
+matrix.matrixCheckerTest();
+println();
+matrix.setMatrix("[1,1,1,1;0,1,1,1;0,0,1,1;0,0,0,1]");
+matrix.matrixCheckerTest();

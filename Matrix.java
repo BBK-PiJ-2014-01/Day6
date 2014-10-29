@@ -122,4 +122,10 @@ public class Matrix {
 		}
 		System.out.println();
 	}
+
+	public void matrixCheckerTest() {
+		MatrixChecker matrixChecker = new MatrixChecker();
+		System.out.println("Symmetrical? "+ matrixChecker.isSymmetrical(matrix2D));
+		System.out.println("Triangular? "+ matrixChecker.isTriangular(matrix2D));  
+	}
 }
