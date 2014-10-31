@@ -2,9 +2,9 @@ public class Target {
 
 	private int[][][] matrix;
 
-	int target_x;
-	int target_y;
-	int target_z;
+	private int target_x;
+	private int target_y;
+	private int target_z;
 
 	public Target(int size) {
 		matrix = new int[size][size][size];
