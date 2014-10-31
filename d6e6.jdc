@@ -1,12 +1,58 @@
-Target target = new Target(10);
+Target target = new Target(5);
 target.init();
-println("Here they come! Try to bring the plane down!);
+Result feedback;
+boolean answer = true;
+String input = "";
+int input_x;
+int input_y;
+int input_z;
+
+
 do {
-	println("Enter a coordinate X: ");
-	input_x = System.console.readInt();
-	println("Enter a coordinate Y: ");
-	input_y = System.console.readInt();
-	println("Enter a coordinate Z: ");
-	input_z = System.console.readInt();
-	
-} while (target.fire(input_x, input_y, input_z)!=Result.HIT)
+	println("Here they come! Try to bring the plane down!");
+	do {	
+		println("Enter a coordinate X: ");
+		input_x = readInt();
+		println("Enter a coordinate Y: ");
+		input_y = readInt();
+		println("Enter a coordinate Z: ");
+		input_z = readInt();
+		feedback = target.fire(input_x, input_y, input_z);
+		switch(feedback) {
+			case HIT:
+				println("You hit it! Well done!");
+				break;
+			case OUT_OF_RANGE:
+				println("That shot is way out of range. Try harder!");
+				break;
+			case FAIL_LEFT:
+				println("Your target is to the right!");
+				break;
+			case FAIL_RIGHT:
+				println("Your target is to the left!");
+				break;
+			case FAIL_SHORT:
+				println("Your target is farther!");
+				break;
+			case FAIL_LONG:
+				println("Your target is closer!");
+				break;
+			case FAIL_LOW:
+				println("Your target is higher!");
+				break;
+			case FAIL_HIGH:
+				println("Your target is lower!");
+				break;
+			default:
+				println("There is a bug in the programme!");
+				break;
+		}
+
+	} while (feedback!=Result.HIT);
+	println("Would you like to play again? (Y/N)");
+	input=System.console().readLine();
+	if (input.equals("Y"))
+		answer = true;
+	else
+		answer = false;
+} while (answer);
