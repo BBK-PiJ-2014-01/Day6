@@ -1,3 +1,29 @@
+int size = 5;
+EmployeeList employeeList = new EmployeeList(size);
+EmployeeList employeeBiggerList;
+int inputID = 0;
+String inputName = "";
+boolean finished = false;
+boolean sizeFeedback = true;
 
-println("new employeeID : ");
-int input = readInt();
+do {
+	println("Employee ID : ");
+	inputID = readInt();
+	println("Employee Name : ");
+	inputName = System.console().readLine();
+	if ((inputID == 0) || (inputName.equals("")))
+		finished = true;
+	else
+		if(!(employeeList.empSet(inputID, inputName))) {
+			size *= 2;
+			employeeBiggerList = new EmployeeList(size);
+			for (int i=0; i<employeeList.empGetCurrentSize() ; i++)
+				employeeBiggerList.empSet(employeeList.empGetID(i),employeeList.empGetName(i));
+			employeeList = employeeBiggerList;
+		}
+} while (!finished);
+
+println("Employees whose IDs is even or name starts with 's':");
+for (int i=0; i<employeeList.empGetCurrentSize(); i++) 
+	if ((employeeList.empGetID(i)%2 == 0) || (employeeList.empGetName(i).substring(0,1).equals("S")))
+		println("Employee ID: " + employeeList.empGetID(i) + " Name: " + employeeList.empGetName(i));
