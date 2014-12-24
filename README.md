@@ -1,4 +1,4 @@
 Day6
 ====
 
-Day6 Exercises
+All exercises are complete
